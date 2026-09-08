@@ -278,7 +278,11 @@ def process_document_pipeline(file_bytes: bytes, filename: str) -> Optional[Dict
     preprocessed_img, stages = preprocess_image(primary_image, preproc_options)
 
     # 4. OCR
-    ocr_result = perform_ocr(images, raw_pdf_bytes=file_bytes if filename.lower().endswith(".pdf") else None)
+    ocr_result = perform_ocr(
+        images,
+        raw_pdf_bytes=file_bytes if filename.lower().endswith(".pdf") else None,
+        filename=filename
+    )
 
     # 5. ML Classification
     classification = classify_document(ocr_result.text)
