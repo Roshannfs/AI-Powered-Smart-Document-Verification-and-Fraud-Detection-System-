@@ -1,0 +1,129 @@
+{
+    "overall_accuracy": 1.0,
+    "classes": [
+        "application_form",
+        "bank_statement",
+        "certificate",
+        "id_card",
+        "invoice"
+    ],
+    "confusion_matrix": [
+        [
+            14,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            14,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            14,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            14,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            14
+        ]
+    ],
+    "per_class_metrics": [
+        {
+            "class": "application_form",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 14
+        },
+        {
+            "class": "bank_statement",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 14
+        },
+        {
+            "class": "certificate",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 14
+        },
+        {
+            "class": "id_card",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 14
+        },
+        {
+            "class": "invoice",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 14
+        }
+    ],
+    "classification_report": {
+        "application_form": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "bank_statement": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "certificate": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "id_card": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "invoice": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 70.0
+        },
+        "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 70.0
+        }
+    }
+}

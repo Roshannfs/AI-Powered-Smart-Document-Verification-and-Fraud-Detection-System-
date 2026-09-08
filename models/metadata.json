@@ -1,0 +1,66 @@
+{
+    "model_name": "TF-IDF + LogisticRegression Document Classifier",
+    "trained_at": "2026-09-08T09:45:37.975820",
+    "classes": [
+        "application_form",
+        "bank_statement",
+        "certificate",
+        "id_card",
+        "invoice"
+    ],
+    "num_classes": 5,
+    "total_samples": 350,
+    "train_samples": 280,
+    "test_samples": 70,
+    "test_accuracy": 1.0,
+    "classification_report": {
+        "application_form": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "bank_statement": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "certificate": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "id_card": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "invoice": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 14.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 70.0
+        },
+        "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 70.0
+        }
+    },
+    "max_features": 4000,
+    "ngram_range": [
+        1,
+        2
+    ]
+}

@@ -1,0 +1,13 @@
+services:
+  docverify-app:
+    build: .
+    container_name: docverify_ai
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+    environment:
+      - APP_PORT=8501
+      - APP_HOST=0.0.0.0
