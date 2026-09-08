@@ -362,7 +362,7 @@ def process_document_pipeline(file_bytes: bytes, filename: str) -> Optional[Dict
     }
 
 
-def render_analysis_results(res: Dict[str, Any]):
+def render_analysis_results(res: Dict[str, Any], key_prefix: str = "main"):
     """Renders the comprehensive analysis dashboard for verified document."""
     st.markdown("---")
 
@@ -419,7 +419,7 @@ def render_analysis_results(res: Dict[str, Any]):
 
     with col_gauge:
         gauge_fig = create_risk_gauge(risk.score, risk.risk_level, risk.color_code)
-        st.plotly_chart(gauge_fig, use_container_width=True)
+        st.plotly_chart(gauge_fig, use_container_width=True, key=f"{key_prefix}_risk_gauge_{res['record_id']}")
 
     # Download Report Button
     report_path = res.get("report_path")
@@ -431,7 +431,8 @@ def render_analysis_results(res: Dict[str, Any]):
             data=pdf_data,
             file_name=Path(report_path).name,
             mime="application/pdf",
-            use_container_width=True
+            use_container_width=True,
+            key=f"{key_prefix}_download_pdf_{res['record_id']}"
         )
 
     # Detailed Analysis Sub-Tabs
@@ -600,7 +601,7 @@ def main():
 
         # Render latest result if available in session state
         if "latest_result" in st.session_state:
-            render_analysis_results(st.session_state["latest_result"])
+            render_analysis_results(st.session_state["latest_result"], key_prefix="upload_tab")
 
     # -------------------------------------------------------------
     # TAB 2: INTERACTIVE SAMPLE GALLERY
@@ -647,7 +648,7 @@ def main():
                             st.success("Sample Analysis Completed!")
 
         if "gallery_result" in st.session_state:
-            render_analysis_results(st.session_state["gallery_result"])
+            render_analysis_results(st.session_state["gallery_result"], key_prefix="gallery_tab")
 
     # -------------------------------------------------------------
     # TAB 3: VERIFICATION HISTORY
@@ -688,7 +689,7 @@ def main():
                     }
                 )
                 fig_risk.update_layout(height=280, margin=dict(l=10, r=10, t=35, b=10))
-                st.plotly_chart(fig_risk, use_container_width=True)
+                st.plotly_chart(fig_risk, use_container_width=True, key="history_risk_pie")
 
             with chart_col2:
                 fig_types = px.bar(
@@ -697,7 +698,7 @@ def main():
                     color="document_type"
                 )
                 fig_types.update_layout(height=280, margin=dict(l=10, r=10, t=35, b=10), showlegend=False)
-                st.plotly_chart(fig_types, use_container_width=True)
+                st.plotly_chart(fig_types, use_container_width=True, key="history_doc_types_bar")
 
             st.markdown("#### Audit Trail Log")
             display_table = df_hist[[
@@ -764,7 +765,7 @@ def main():
                     title="Confusion Matrix (Held-out Test Split)"
                 )
                 fig_cm.update_layout(height=420)
-                st.plotly_chart(fig_cm, use_container_width=True)
+                st.plotly_chart(fig_cm, use_container_width=True, key="eval_confusion_matrix")
 
             # Per class metrics table
             st.markdown("#### Per-Category Performance Breakdown")
